@@ -1,0 +1,325 @@
+
+/* Allgemeine Einstellungen */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: #f8f9fc;
+}
+
+
+/* Navigation */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px 8%;
+    background: white;
+}
+
+.logo {
+    color: #25eb5a;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+
+/* Hero-Bereich */
+
+
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+
+    background: #0e441f;
+    color: white;
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Bild mittig platzieren, unabhängig vom Textfluss */
+.hero::before {
+    content: "";
+    position: absolute;
+    opacity: 0.2;
+
+    width: 60%;
+    aspect-ratio: 5 / 3;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-image: url("Bilder/sinnbild_camping_wildnis.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    z-index: -1;
+    pointer-events: none;
+
+
+    /* Weiche Ausblendung an allen vier Kanten */
+    -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 30%,
+    black 70%,
+    transparent 100%
+    );
+
+    mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 30%,
+    black 70%,
+    transparent 100%
+    );
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Block-Bereich */
+
+.block {
+    text-align: center;
+    padding: 120px 20px;
+
+    background: #ffffff;
+    color: #222;
+}
+
+.block h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.block p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+
+/* Button */
+
+.button {
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    background: #09cb2d;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #3e784a;
+}
+
+
+/* Vorteile */
+
+.features {
+    padding: 30px 8%;
+    text-align: center;
+}
+
+.feature-grid {
+    display: flex;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.feature {
+    flex: 1;
+
+    padding: 30px;
+    background: white;
+
+    border-radius: 12px;
+    box-shadow: 0 4px 15px
+                rgba(0, 0, 0, 0.05);
+}
+
+.feature h3 {
+    margin-bottom: 15px;
+}
+
+
+/* Wetter */
+
+/* Wetterkarte */
+
+.weather-card {
+    background: white;
+    max-width: 450px;
+    margin: auto;
+    padding: 35px;
+
+    text-align: center;
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px
+        rgba(0, 0, 0, 0.1);
+}
+
+#weather-icon {
+    font-size: 65px;
+    margin: 20px;
+}
+
+#temperature {
+    font-size: 55px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+#description {
+    margin-top: 10px;
+    color: #666;
+}
+
+
+/* Wetterdetails */
+
+.weather-details {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.weather-details p {
+    margin: 12px;
+}
+
+
+/* Vorhersage */
+
+.forecast {
+    margin-top: 50px;
+}
+
+.forecast h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#forecast-container {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.forecast-day {
+    background: white;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px
+        rgba(0, 0, 0, 0.05);
+}
+
+.forecast-day .icon {
+    font-size: 35px;
+    margin: 12px 0;
+}
+
+.forecast-day p {
+    margin: 8px 0;
+}
+
+
+/* Footer */
+
+footer {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+
+/* Smartphone */
+
+@media (max-width: 600px) {
+
+    main {
+        margin: 15px auto;
+        padding: 12px;
+    }
+
+    .weather-card {
+        padding: 25px 15px;
+    }
+
+    #temperature {
+        font-size: 45px;
+    }
+
+}
+
+
+/* Footer */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    background: #0e441f;
+    color: white;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .feature-grid {
+        flex-direction: column;
+    }
+
+    nav {
+        display: none;
+    }
+
+}
